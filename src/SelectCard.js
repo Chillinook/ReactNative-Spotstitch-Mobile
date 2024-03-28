@@ -3,7 +3,7 @@ import {StyleSheet, View, TextInput, FlatList, Text, TouchableOpacity } from 're
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { selectCarddummyData } from './selectCarddummyData'
 
-function SelectCard() {
+function SelectCard(props) {
   const [search, setSearch] = React.useState('')
   const [topics, setTopics] = React.useState(selectCarddummyData)
 
@@ -14,6 +14,8 @@ function SelectCard() {
       }
       return topic
     })
+    // props.setSelect(newTopics)
+    // console.log(props.select.topic)
     setTopics(newTopics)
   }
 

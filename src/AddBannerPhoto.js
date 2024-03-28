@@ -2,7 +2,7 @@ import React from 'react';
 import { Image , StyleSheet, Platform, StatusBar , View, Text,ArrowRightIcon, ScrollView, Touchable, TouchableOpacity} from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
-function AddBannerPhoto(props) {
+function AddBannerPhoto({navigation}) {
     return (
         < View style={ styles.container}>
         <View style={ styles.maintext  }>
@@ -38,14 +38,14 @@ function AddBannerPhoto(props) {
             <Text style={ styles.username}>John Doe</Text>
         </View>
         <View style={ styles.lastRow } >
-                <TouchableOpacity onPress={() => console.log("goback") } >
+                <TouchableOpacity onPress={() => navigation.goBack()} >
                     <Image source={require( '../assets/back2.png')} onPress={() => navigation.goBack()} />    
                 </TouchableOpacity>    
                 <View style={{ flexDirection:'row', alignItems:'center' , columnGap:20}}>
-                    <TouchableOpacity onPress={() => console.log("Skip")} >
+                    <TouchableOpacity onPress={() => navigation.push('SelectTopic')} >
                         <Image source={require( '../assets/skipBtn.png')} />    
                     </TouchableOpacity >            
-                    <TouchableOpacity onPress={() => console.log("Done")} >
+                    <TouchableOpacity onPress={() => navigation.navigate('SelectTopic') } >
                         <Image source={require( '../assets/nextBtn.png')} />    
                     </TouchableOpacity >    
                 </View>
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
       }, 
       imagecontainer:{
         position:'absolute',
-        top: Platform.OS === 'android'? '60%':'50%', 
+        top: Platform.OS === 'android'? '50%':'50%', 
         zIndex:0
       },
       username: {

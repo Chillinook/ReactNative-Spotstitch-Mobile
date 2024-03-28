@@ -13,6 +13,9 @@ import LoginScreen from './src/LoginScreen'
 import SignUpScreen from './src/SignUpScreen'
 import TwoFactorAuthScreen from './src/TwoFactorAuthScreen'
 import CreateBioScreen from './src/CreateBioScreen'
+import RegisterScreen from './src/RegisterScreen';
+import AccountVerificationScreen from './src/AccountVerificationScreen';
+import SocialMediaConnectScreen from './src/SocialMediaConnectScreen';
 
 const Stack = createStackNavigator()
 
@@ -30,17 +33,26 @@ export default function App() {
           <Stack.Screen name="LoadingScreen" component={LoadingScreen} />
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
           <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
-        
+          <Stack.Screen name="AccountVerificationScreen" component={AccountVerificationScreen} />
+
+
+          <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+
+
           <Stack.Screen name="TwoFactorAuthScreen" component={TwoFactorAuthScreen} />
           <Stack.Screen name="CreateBioScreen" component={CreateBioScreen} />
-          
-          
-          <Stack.Screen name="AddProfileScreen" component={AddProfilePhoto} />      
-          <Stack.Screen name="SelectTopic" component={SelectTopic} />
+          <Stack.Screen name="SocialMediaConnectScreen" component={SocialMediaConnectScreen} />
 
-      {/* // <SelectTopic/>
-      // <AddBannerPhoto/>
-      // <JoinLayerScreen/> */}
+          <Stack.Screen name="AddProfileScreen" component={AddProfilePhoto} />      
+          <Stack.Screen name="AddBannerPhoto" component={AddBannerPhoto} />
+          <Stack.Screen name="SelectTopic" component={SelectTopic} />
+          <Stack.Screen name="JoinLayerScreen" component={JoinLayerScreen} />
+
+          
+
+          {/* <SelectTopic/> */}
+          {/* // <AddBannerPhoto/> */}
+          {/* // <JoinLayerScreen/> */} 
           {/* <AddProfilePhoto/> */}
 
         </Stack.Navigator>
@@ -50,30 +62,3 @@ export default function App() {
     );
 };
 
-
-// export default function App() {
-//   return (
-//     <Provider theme={theme}>
-//       <NavigationContainer>
-//         <Stack.Navigator
-//           initialRouteName="LoadingScreen"
-//           screenOptions={{
-//             headerShown: false,
-//           }}
-//         >
-//           <Stack.Screen name="LoadingScreen" component={LoadingScreen} />
-//           <Stack.Screen name="StartScreen" component={StartScreen} />
-//           <Stack.Screen name="LoginScreen" component={LoginScreen} />
-//           <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
-//           <Stack.Screen name="Dashboard" component={Dashboard} />
-//           <Stack.Screen name="TrendingScreen" component={TrendingScreen} />
-//           <Stack.Screen name="PostScreen" component={PostScreen} />
-//           <Stack.Screen name="EventScreen" component={EventScreen} />
-//           <Stack.Screen name="ResetPasswordScreen" component={ResetPasswordScreen} />
-//           <Stack.Screen name="LoginOTPVerificationScreen" component={LoginOTPVerificationScreen} />
-//           <Stack.Screen name="AccountCreationScreen" component={AccountCreationScreen} />
-//         </Stack.Navigator>
-//       </NavigationContainer>
-//     </Provider>
-//   )
-// }

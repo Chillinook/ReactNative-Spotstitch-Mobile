@@ -1,10 +1,17 @@
 import React from 'react'
 import { TouchableOpacity, Text, StyleSheet } from 'react-native'
 
-export default function LayerButton({ title, onPress }) {
+export default function LayerButton(props) {
+
+  const onDonePress = (props) =>{
+    // props.setLayer(props.title)
+    // console.log(props.layer)
+
+  }
+
   return (
-    <TouchableOpacity style={styles.container} onPress={ ()=> console.log(title)}>
-      <Text style={styles.text}>{title}</Text>
+    <TouchableOpacity style={styles.container} onPress={ ()=> props.setLayer( ...(props.layer),props.title ) }>
+      <Text style={styles.text}>{props.title}</Text>
       <Text style={styles.joinText}>Join</Text>
     </TouchableOpacity>
   )

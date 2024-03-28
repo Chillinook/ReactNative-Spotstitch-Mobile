@@ -16,7 +16,7 @@ export default function LoginScreen({ navigation }) {
     return (
         <Background>
             <Logo />
-            <Paragraph>Loading....</Paragraph>
+            <Paragraph>SPOTSTITCH</Paragraph>
         </Background>
     );
 }

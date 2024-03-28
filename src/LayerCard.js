@@ -3,12 +3,12 @@ import { View, StyleSheet, FlatList} from 'react-native';
 // import LayerButton from './FromRepo/LayerButton';
 import LayerButton from './LayerButton';
 
-function LayerCard({dummyData}) {
+function LayerCard(props) {
     return (
         <View style={styles.container}>
             <FlatList
-                data={ dummyData}
-                renderItem={({ item }) => <LayerButton title={item.title} />}
+                data={ props.dummyData }
+                renderItem={({ item }) => <LayerButton title={item.title} setLayer={props.setLayer} layer={props.layer}/>}
                 keyExtractor={(item) => item.id.toString()}
                 showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}

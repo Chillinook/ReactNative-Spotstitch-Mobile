@@ -2,7 +2,7 @@ import React, {useRef} from 'react';
 import { Text,Image , StyleSheet, Platform, StatusBar , View, Button, TouchableOpacity} from 'react-native';
 import RBSheet from "react-native-raw-bottom-sheet";
 
-function AddProfilePhoto(props) {
+function AddProfilePhoto({navigation}) {
 
     const refRBSheet = useRef();
     return (       
@@ -48,14 +48,14 @@ function AddProfilePhoto(props) {
             </RBSheet>
 
             <View style={ styles.lastRow } >
-                <TouchableOpacity onPress={() => console.log("goback") } >
-                    <Image source={require( '../assets/back2.png')} onPress={() => navigation.goBack()} />    
+                <TouchableOpacity onPress={() => navigation.goBack() } >
+                    <Image source={require( '../assets/back2.png')}  />    
                 </TouchableOpacity>    
                 <View style={{ flexDirection:'row', alignItems:'center' , columnGap:20}}>
-                    <TouchableOpacity onPress={() => console.log("Skip")} >
+                    <TouchableOpacity onPress={() => navigation.push('AddBannerPhoto')} >
                         <Image source={require( '../assets/skipBtn.png')} />    
                     </TouchableOpacity >            
-                    <TouchableOpacity onPress={() => console.log("Done")} >
+                    <TouchableOpacity onPress={() => navigation.navigate('AddBannerPhoto')} >
                         <Image source={require( '../assets/nextBtn.png')} />    
                     </TouchableOpacity >    
                 </View>

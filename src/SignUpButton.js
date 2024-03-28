@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 import PropTypes from "prop-types";
 import { useNavigation } from "@react-navigation/native";
-import AccountVerificationScreen from "./AccountVerificationScreen";
+// import AccountVerificationScreen from "./AccountVerificationScreen";
 
 function SignUpButton({
     label = 'SIGN UP',
@@ -10,6 +10,7 @@ function SignUpButton({
     buttonStyle = styles.signUpButton,
     textStyle = styles.buttonText,
     disabled = false,
+    
 })
 
 {    
@@ -21,7 +22,8 @@ function SignUpButton({
             submitHandler();
         }
 
-        navigation.navigate(AccountVerificationScreen);
+        // navigation.navigate('AccountVerificationScreen');
+        navigation.navigate('AddProfileScreen');
     };
 
     return (
@@ -57,7 +59,7 @@ const styles = StyleSheet.create({
 
     buttonText:{
         color: 'white',
-        fontFamily: 'poppins',
+        // fontFamily: 'poppins',
         fontWeight: 'bold',
         margin: 10,
     },

@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState} from 'react';
 import { StyleSheet, View ,Pressable , SafeAreaView , Platform , StatusBar, Image ,TouchableOpacity } from 'react-native';  
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import Button from './Button';
@@ -8,7 +8,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
-function JoinLayerScreen() {
+function JoinLayerScreen( {navigation,route} ) {
+    const [layer,setLayer] = useState("")
     return (
         < SafeAreaView style={ styles.container}>
             <View style={ styles.maintext  }>
@@ -20,12 +21,12 @@ function JoinLayerScreen() {
             <View style={ styles.detailtext}>
                 <Image source={require( '../assets/detail.png')} />
             </View>           
-            <LayerCard dummyData={ dummyData } />  
+            <LayerCard dummyData={ dummyData } setLayer={setLayer} layer={layer} />  
             <View style={ styles.lastRow } >
-                <TouchableOpacity onPress={() => console.log("goback") } >
-                    <Image source={require( '../assets/back2.png')} onPress={() => navigation.goBack()} />    
+                <TouchableOpacity onPress={() => navigation.goBack() } >
+                    <Image source={require( '../assets/back2.png')} />    
                 </TouchableOpacity>    
-                <TouchableOpacity onPress={() => console.log("Done")} >
+                <TouchableOpacity onPress={() => console.log(layer)} >
                     <Image source={require( '../assets/doneBtn.png')} />    
                 </TouchableOpacity >            
             </View>  

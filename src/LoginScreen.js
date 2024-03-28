@@ -29,7 +29,20 @@ export default function LoginScreen({ navigation }) {
     }
     navigation.reset({
       index: 0,
-      routes: [{ name: 'LoginOTPVerificationScreen' }],
+      // routes: [{ name: 'LoginOTPVerificationScreen' }],
+      routes: [{ name: "TwoFactorAuthScreen" }],
+      
+    });
+  };
+
+
+  const onSignupPressed = () => { 
+    navigation.reset({
+      index: 0,
+      // routes: [{ name: 'LoginOTPVerificationScreen' }],
+      // routes: [{ name: "SignUpScreen" }],
+      routes: [{ name: "JoinLayerScreen" }],
+      
     });
   };
 
@@ -39,7 +52,7 @@ export default function LoginScreen({ navigation }) {
 
   return (
     <Background>
-      <BackButton goBack={navigation.goBack} />
+      {/* <BackButton goBack={navigation.goBack} /> */}
       <Logo />
       <Header>Welcome to Spotstitch!</Header>
       <TextInput
@@ -89,7 +102,8 @@ export default function LoginScreen({ navigation }) {
       </View>
       <View style={[styles.row, { marginTop: 20 }]}>
         <Text style={styles.signUpText}>No account? </Text>
-        <TouchableOpacity onPress={ () => navigation.navigate('SignUpScreen')} >  
+        <TouchableOpacity onPress={ ()=> navigation.push('SignUpScreen')} >  
+        {/* <TouchableOpacity onPress={ () => navigation.navigate('JoinLayerScreen')} >   */}
         {/* <TouchableOpacity onPress={() =>  navigation.replace('SignUpScreen')}>  */}
           <Text style={styles.link}>Sign up</Text>
         </TouchableOpacity>
@@ -119,10 +133,12 @@ const styles = StyleSheet.create({
   signInButton: {
     marginTop: 20,
     width: '40%',
-    backgroundColor: theme.colors.gray,
+    // backgroundColor: theme.colors.gray,
+    backgroundColor: '#8CBDEB'
   },
   signInText: {
-    color: theme.colors.text,
+    // color: theme.colors.text,
+    color: 'white',
     fontWeight: 'bold',
   },
   signUpText: {

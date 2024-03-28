@@ -1,12 +1,13 @@
 import React from 'react';
 import { StyleSheet, Image, View, Text, TextInput } from 'react-native';
-
+// import { Poppins_100Thin_Italic } from "@expo-google-fonts/poppins";
 import SignUpButton from './SignUpButton';
 
 function SignUpScreen() {
 
     const submitUserInfo = () => {
-        navigation.navigate('TwoFactorAuthScreen')
+        // console.log('Authen')
+        navigation.navigate('AddProfileScreen')
     }
 
     return (
@@ -43,7 +44,8 @@ function SignUpScreen() {
                     <Text style={styles.inputLabel}>Password</Text>
                     <TextInput style={styles.input} autoComplete='current-password' secureTextEntry={true} />
                 </View>
-                <SignUpButton onPress={submitUserInfo} />
+                <SignUpButton onPress={submitUserInfo} /> 
+                {/* {/* <SignUpButton onPress={ ()=> console.log('submit')} /> */}
             </View>
         </View>
     );
@@ -60,9 +62,9 @@ const styles = StyleSheet.create({
 
     header:{
         marginTop: 30,
-        fontFamily: 'poppins',
+        // fontFamily: 'poppins',
         fontSize: 20,
-        // fontWeight: 'bold',
+        fontWeight: 'bold',
     },
 
     icon:{
@@ -82,7 +84,7 @@ const styles = StyleSheet.create({
         height: 40,
         paddingLeft: 10,
         borderColor: 'black',
-        fontFamily: 'poppins',
+        // fontFamily: 'poppins',
     },
 
     inputContainer:{
@@ -100,7 +102,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         paddingHorizontal: 3,
         color: 'black',
-        fontFamily: 'poppins',
+        // fontFamily: 'poppins',
         fontSize: 12,
     },
 
@@ -112,7 +114,7 @@ const styles = StyleSheet.create({
 
     orText:{
         marginHorizontal: 10,
-        fontFamily: 'poppins',
+        // fontFamily: 'poppins',
         fontSize: 13,
         color: 'black',
     },

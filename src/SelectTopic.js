@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState} from 'react';
 import { Image , StyleSheet, Platform, StatusBar , View, Button, TouchableOpacity} from 'react-native';
-// import SelectTopics from './FromRepo/SelectTopics';
 import SelectCard from './SelectCard';
 
-function SelectTopic(props) {
+function SelectTopic({navigation}) {
+    const [select,setSelect] = useState({ topic:'WTF' , sad:'sad' })
     return (
         < View style={ styles.container}>
             <View style={ styles.maintext  }>
@@ -18,17 +18,17 @@ function SelectTopic(props) {
             <Image source={require( '../assets/select.png')}
                 />
             </View>
-            <SelectCard/>
+            <SelectCard setSelect={setSelect} select={select}/>           
             <View style={ styles.lastRow }
             >
-                <TouchableOpacity onPress={() => console.log("goback") } >
-                    <Image source={require( '../assets/back2.png')} onPress={() => navigation.goBack()} />    
+                <TouchableOpacity onPress={() => navigation.goBack() } >
+                    <Image source={require( '../assets/back2.png')} />    
                 </TouchableOpacity>    
                 <View style={{ flexDirection:'row', alignItems:'center' , columnGap:20}}>
-                    <TouchableOpacity onPress={() => console.log("Skip")} >
+                    <TouchableOpacity onPress={() => navigation.push('JoinLayerScreen')} >
                         <Image source={require( '../assets/skipBtn.png')} />    
                     </TouchableOpacity >            
-                    <TouchableOpacity onPress={() => console.log("Done")} >
+                    <TouchableOpacity onPress={() => navigation.navigate({name:'JoinLayerScreen', params: select })} >
                         <Image source={require( '../assets/nextBtn.png')} />    
                     </TouchableOpacity >            
 

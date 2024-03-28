@@ -16,10 +16,15 @@ import CreateBioScreen from './src/CreateBioScreen'
 import RegisterScreen from './src/RegisterScreen';
 import AccountVerificationScreen from './src/AccountVerificationScreen';
 import SocialMediaConnectScreen from './src/SocialMediaConnectScreen';
+import ConfirmationScreen from './src/ConfirmationScreen';
+import TwoFAOptInScreen from './src/TwoFAOptInScreen';
+import React, { useState } from 'react';
 
 const Stack = createStackNavigator()
 
 export default function App() {
+  const [signEmail,setsignEmail] = useState({ value: '', error: '' });
+
   
   return (
     <Provider theme={theme}>
@@ -33,7 +38,16 @@ export default function App() {
           <Stack.Screen name="LoadingScreen" component={LoadingScreen} />
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
           <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
+          <Stack.Screen name="ConfirmationScreen" component={ConfirmationScreen} />
+          <Stack.Screen name="TwoFAOptInScreen" component={TwoFAOptInScreen} />
+
+          
+
+
+
           <Stack.Screen name="AccountVerificationScreen" component={AccountVerificationScreen} />
+
+
 
 
           <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
@@ -42,6 +56,10 @@ export default function App() {
           <Stack.Screen name="TwoFactorAuthScreen" component={TwoFactorAuthScreen} />
           <Stack.Screen name="CreateBioScreen" component={CreateBioScreen} />
           <Stack.Screen name="SocialMediaConnectScreen" component={SocialMediaConnectScreen} />
+
+
+
+
 
           <Stack.Screen name="AddProfileScreen" component={AddProfilePhoto} />      
           <Stack.Screen name="AddBannerPhoto" component={AddBannerPhoto} />

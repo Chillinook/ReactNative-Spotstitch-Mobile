@@ -1,143 +1,190 @@
-import React from 'react';
-import { StyleSheet, Image, View, Text, TextInput } from 'react-native';
-// import { Poppins_100Thin_Italic } from "@expo-google-fonts/poppins";
-import SignUpButton from './SignUpButton';
+import React, { useState } from 'react'
+import { StyleSheet, View, Image } from 'react-native'
+import { Text } from 'react-native-paper'
+import Button from './components/Button'
+import TextInput from './components/TextInput'
+import { nameValidator } from './helpers/nameValidator'
+import { emailValidator } from './helpers/emailValidator'
+import { usernameValidator } from './helpers/usernameValidator'
+import { passwordValidator } from './helpers/passwordValidator'
+import Icon from './components/Icon'
+import { socialIconList } from './components/Icon/socialIconList'
+import HorizontalLine from './components/HorizontalLine'
 
-function SignUpScreen() {
+export default function SignUpScreen({ navigation }) {
+    const [name, setName] = useState({ value: '', error: '' });
+    const [email, setEmail] = useState({ value: '', error: '' });
+    const [username, setUsername] = useState({ value: '', error: '' });
+    const [password, setPassword] = useState({ value: '', error: '' });
+    const [showPassword, setShowPassword] = useState(false);
+  
+    const onSignupPressed = () => {
+        const nameError = nameValidator(name.value);
+        const emailError = emailValidator(email.value);
+        const usernameError = usernameValidator(name.value);
+        const passwordError = passwordValidator(password.value);
 
-    const submitUserInfo = () => {
-        // console.log('Authen')
-        navigation.navigate('AddProfileScreen')
-    }
+        if (nameError || emailError || usernameError || passwordError) {
+            setName({ ...name, error: nameError });
+            setEmail({ ...email, error: emailError });
+            setUsername({ ...username, error: usernameError });
+            setPassword({ ...password, error: passwordError });
+            return;
+        }
 
+        navigation.navigate('ConfirmationScreen' , {email} )
+
+        // navigation.reset({
+        //     index:1 ,
+        //     action: navigation.navigate('ConfirmationScreen' , {email} ),
+        // })
+        
+
+        // navigation.reset('ConfirmationScreen' , {email})
+
+        // navigation.reset({
+        //     index: 0,
+        //     // routes: [{ name: 'ConfirmationScreen' ,  params:email } ],
+        //     routes: [{name:'ConfirmationScreen' , params: email } ] ,
+        // });
+
+   
+    };
+  
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+  
     return (
         <View style={styles.container}>
-            <Image style={styles.logo} source={require('./images/rectangle_99.png')}/>
-            <Text style={styles.header}>Sign up with social media</Text>
-            <View style={styles.iconsContainer}>
-                <Image style={styles.icon} source={require('./images/facebook.png')}/>
-                <Image style={styles.icon} source={require('./images/twitter.png')}/>
-                <Image style={styles.icon} source={require('./images/instagram.png')}/>
-                <Image style={styles.icon} source={require('./images/google.png')}/>
+            <Image source={require( './boxLogo.png' )} />
+
+            <View style={ styles.mainText}>
+                <Image source={require( './signupSocMed.png' )} />
             </View>
 
-            <View style={styles.separator}>
-                <View style={styles.separatorLine} />
-                    <Text style={styles.orText}>Or use your email</Text>
-                <View style={styles.separatorLine} />
+            <View style={[styles.row, styles.icons]}>
+                {socialIconList.map((item) => {
+                  return (
+                    <Icon
+                      key={item.name}
+                      name={item.name}
+                      containerStyle={styles.iconContainer}
+                      onPress={item.onPress}
+                      type='font-awesome'
+                    />
+                  );
+                })}
             </View>
 
-            <View style={styles.userInputContainer}>
-                <View style={styles.inputContainer}>
-                    <Text style={styles.inputLabel}>Full name</Text>
-                    <TextInput style={styles.input} inputMode='text' autoComplete='name' />
-                </View>
-                <View style={styles.inputContainer}>
-                    <Text style={styles.inputLabel}>Email</Text>
-                    <TextInput style={styles.input} inputMode='email' />
-                </View>
-                <View style={styles.inputContainer}>
-                    <Text style={styles.inputLabel}>Username</Text>
-                    <TextInput style={styles.input} autoComplete='username' />
-                </View>
-                <View style={styles.inputContainer}>
-                    <Text style={styles.inputLabel}>Password</Text>
-                    <TextInput style={styles.input} autoComplete='current-password' secureTextEntry={true} />
-                </View>
-                <SignUpButton onPress={submitUserInfo} /> 
-                {/* {/* <SignUpButton onPress={ ()=> console.log('submit')} /> */}
-            </View>
+            <HorizontalLine text="Or use your email" />
+            
+            <TextInput
+                label="Full name"
+                returnKeyType="next"
+                value={name.value}
+                onChangeText={(text) => setName({ value: text, error: '' })}
+                error={!!name.error}
+                errorText={name.error}
+                autoCapitalize="none"
+                autoCompleteType="name"
+                textContentType="name"
+            />
+
+            <TextInput
+                label="Email"
+                returnKeyType="next"
+                value={email.value}
+                onChangeText={(text) => setEmail({ value: text, error: '' })}
+                error={!!email.error}
+                errorText={email.error}
+                autoCapitalize="none"
+                autoCompleteType="email"
+                textContentType="emailAddress"
+                keyboardType="email-address"
+            />
+
+            <TextInput
+                label="Username"
+                returnKeyType="next"
+                value={username.value}
+                onChangeText={(text) => setUsername({ value: text, error: '' })}
+                error={!!username.error}
+                errorText={username.error}
+                autoCapitalize="none"
+                autoCompleteType="username"
+                textContentType="username"
+            />
+
+            <TextInput
+                label="Password"
+                returnKeyType="done"
+                value={password.value}
+                onChangeText={(text) => setPassword({ value: text, error: '' })}
+                error={!!password.error}
+                errorText={password.error}
+                secureTextEntry={!showPassword}
+            />
+
+            <Button style={styles.signUpButton} mode="contained" onPress={onSignupPressed}>
+                <Text style={styles.signUpText}>SIGN UP</Text>
+            </Button>
         </View>
     );
 }
-
+  
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
-        backgroundColor: '#fff',
+        padding: 8,
+        width: '100%',
+        maxWidth: 340,
+        alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 20,
     },
 
-    header:{
+    mainText:{
         marginTop: 30,
-        // fontFamily: 'poppins',
-        fontSize: 20,
+      },
+
+    row: {
+        flexDirection: 'row',
+        marginTop: 4,
+    },
+
+    icons: {
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        iconColor: 'green',
+    },
+
+    iconContainer: {
+        marginHorizontal: 10,
+        marginTop: 10,
+    },
+
+    signUpButton: {
+        backgroundColor: '#8CBDEB',
+        width: 110,
+        borderRadius: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: 10,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 1.5,
+        },
+        shadowOpacity: 0.3,
+        shadowRadius: 2,
+        elevation: 5,
+    },
+
+    signUpText: {
+        color: "#FFFFFF",
         fontWeight: 'bold',
     },
-
-    icon:{
-        marginHorizontal: 12,
-        width: 50,
-        height: 50,
-    },
-
-    iconsContainer:{
-        flexDirection: 'row',
-        marginTop: 25,
-        marginBottom: 10,
-    },
-
-    input:{
-        width: '100%',
-        height: 40,
-        paddingLeft: 10,
-        borderColor: 'black',
-        // fontFamily: 'poppins',
-    },
-
-    inputContainer:{
-        flexDirection: 'row',
-        borderWidth: 1,
-        borderBottomColor: 'black',
-        margin: 12,
-        borderRadius: 3,
-    },
-
-    inputLabel:{
-        position: 'absolute',
-        top: -10,
-        left: 10,
-        backgroundColor: 'white',
-        paddingHorizontal: 3,
-        color: 'black',
-        // fontFamily: 'poppins',
-        fontSize: 12,
-    },
-
-    logo:{
-        margin: 20,
-        width: 110,
-        height: 110,
-    },
-
-    orText:{
-        marginHorizontal: 10,
-        // fontFamily: 'poppins',
-        fontSize: 13,
-        color: 'black',
-    },
-
-    separator:{
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginTop: 20,
-    },
-      
-    separatorLine:{
-        flex: 1,
-        height: 1,
-        backgroundColor: 'lightgrey',
-        height: 1.5,
-    },
-
-    userInputContainer:{
-        marginTop: 30,
-        width: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
 })
-
-export default SignUpScreen;
+  

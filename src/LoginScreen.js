@@ -30,11 +30,10 @@ export default function LoginScreen({ navigation }) {
     navigation.reset({
       index: 0,
       // routes: [{ name: 'LoginOTPVerificationScreen' }],
-      routes: [{ name: "TwoFactorAuthScreen" }],
+      routes: [{ name: "TwoFactorAuthScreen", params:email }],
       
     });
   };
-
 
   const onSignupPressed = () => { 
     navigation.reset({
@@ -52,7 +51,6 @@ export default function LoginScreen({ navigation }) {
 
   return (
     <Background>
-      {/* <BackButton goBack={navigation.goBack} /> */}
       <Logo />
       <Header>Welcome to Spotstitch!</Header>
       <TextInput
@@ -67,7 +65,11 @@ export default function LoginScreen({ navigation }) {
         textContentType="emailAddress"
         keyboardType="email-address"
       />
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <TouchableOpacity onPress={togglePasswordVisibility}>
+          <Text style={{ fontSize: 12, color: 'blue', marginLeft: 10 }}>
+            {showPassword ? 'Hide' : 'Show'}
+          </Text>
+        </TouchableOpacity>
         <TextInput
           label="Password"
           returnKeyType="done"
@@ -76,14 +78,7 @@ export default function LoginScreen({ navigation }) {
           error={!!password.error}
           errorText={password.error}
           secureTextEntry={!showPassword}
-          style={{ flex: 1 }}
         />
-        <TouchableOpacity onPress={togglePasswordVisibility}>
-          <Text style={{ fontSize: 16, color: 'blue', marginLeft: 10 }}>
-            {showPassword ? 'Hide' : 'Show'}
-          </Text>
-        </TouchableOpacity>
-      </View>
       <Button style={styles.signInButton} mode="contained" onPress={onLoginPressed}>
         <Text style={styles.signInText}>Sign in</Text>
       </Button>
@@ -102,7 +97,7 @@ export default function LoginScreen({ navigation }) {
       </View>
       <View style={[styles.row, { marginTop: 20 }]}>
         <Text style={styles.signUpText}>No account? </Text>
-        <TouchableOpacity onPress={ ()=> navigation.push('SignUpScreen')} >  
+        <TouchableOpacity onPress={ ()=> navigation.navigate('SignUpScreen')} >  
         {/* <TouchableOpacity onPress={ () => navigation.navigate('JoinLayerScreen')} >   */}
         {/* <TouchableOpacity onPress={() =>  navigation.replace('SignUpScreen')}>  */}
           <Text style={styles.link}>Sign up</Text>

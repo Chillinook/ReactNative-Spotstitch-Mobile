@@ -2,7 +2,9 @@ import React, {useRef} from 'react';
 import { Text,Image , StyleSheet, Platform, StatusBar , View, Button, TouchableOpacity} from 'react-native';
 import RBSheet from "react-native-raw-bottom-sheet";
 
-function AddProfilePhoto({navigation}) {
+function AddProfilePhoto({navigation,route}) {
+
+    console.log(route.params.test.ff)
 
     const refRBSheet = useRef();
     return (       

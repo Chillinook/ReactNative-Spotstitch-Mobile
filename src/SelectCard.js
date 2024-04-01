@@ -9,14 +9,13 @@ function SelectCard(props) {
 
   const handleOnPress = (id) => {
     const newTopics = topics.map((topic) => {
-      if (topic.id === id) {
+      if (topic.id === id) {  
+        props.setSelect(topic.name)      
         return { ...topic, selected: !topic.selected }
       }
       return topic
     })
-    // props.setSelect(newTopics)
-    // console.log(props.select.topic)
-    setTopics(newTopics)
+    setTopics(newTopics)    
   }
 
   return (

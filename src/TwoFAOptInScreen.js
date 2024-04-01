@@ -2,12 +2,26 @@ import React, { useState } from 'react'
 import { TouchableOpacity, StyleSheet, View } from 'react-native'
 import TextInput from './components/TextInput'
 import { Image, Platform, StatusBar, Text } from 'react-native';
+import { phoneValidator} from './helpers/phoneValidator'
 
-export default function TwoFAOptInScreen({ navigation }) {
-    const [phoneNumber, setPhoneNumber] = React.useState('')
+export default function TwoFAOptInScreen({ navigation,route }) {
+    const [phoneNumber, setPhoneNumber] = useState({ value:'', error:''})
     const userPhoneNumber = '000-000-0000' // route.params
+    const email= route.params.email 
 
-    const [test,setTest] = useState({ gg:'kk' , ff:'gg'})
+    const onNextPressed = () => {
+        const phoneError = phoneValidator(phoneNumber.value);
+     
+        if (phoneError) {
+            setPhoneNumber({ ...phoneNumber, error: phoneError });           
+            return;
+        }
+        navigation.navigate('SignUpTwoFA', { email,phoneNumber })      
+        // navigation.reset({
+        //     index: 0,    
+        //     routes: [{name:'SignUpTwoFA' , params: {email,phoneNumber} } ] ,
+        // });   
+    };
 
     return (
         < View style={ styles.container}>
@@ -31,9 +45,10 @@ export default function TwoFAOptInScreen({ navigation }) {
                 <TextInput
                     label="Phone number"
                     returnKeyType="done"
-                    value={phoneNumber}
-                    onChangeText={(text) => setPhoneNumber(text)}
-                    error={false}
+                    value={phoneNumber.value}
+                    onChangeText={(text) => setPhoneNumber({ value: text, error: '' })}
+                    error={!!phoneNumber.error}
+                    errorText={phoneNumber.error}
                     autoCapitalize="none"
                     autoCompleteType="tel"
                     textContentType="telephoneNumber"
@@ -47,11 +62,12 @@ export default function TwoFAOptInScreen({ navigation }) {
                 </TouchableOpacity>  
 
                 <View style={{ flexDirection:'row', alignItems:'center' , columnGap:20}}>
-                    <TouchableOpacity onPress={() => navigation.navigate('AddProfileScreen')} >
+                    <TouchableOpacity onPress={() => navigation.navigate('CreateBio',{ email })} >
                         <Image source={require( '../assets/skipBtn.png')} />    
                     </TouchableOpacity >
 
-                    <TouchableOpacity onPress={() => navigation.navigate('AddProfileScreen', {test} )} >
+                    {/* <TouchableOpacity onPress={() => navigation.navigate('SignUpTwoFA', { email,phoneNumber } )} > */}
+                    <TouchableOpacity onPress={onNextPressed} >
                         <Image source={require( '../assets/nextBtn.png')} />    
                     </TouchableOpacity >    
                 </View>

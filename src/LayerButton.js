@@ -10,7 +10,7 @@ export default function LayerButton(props) {
   }
 
   return (
-    <TouchableOpacity style={styles.container} onPress={ ()=> props.setLayer( ...(props.layer),props.title ) }>
+    <TouchableOpacity style={styles.container} onPress={ ()=> props.setLayer( props.title ) }>
       <Text style={styles.text}>{props.title}</Text>
       <Text style={styles.joinText}>Join</Text>
     </TouchableOpacity>
@@ -28,15 +28,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingHorizontal: 20,
         flexDirection: 'row',
-        marginBottom: 15,
-        // // shadowColor: '#000',
-        // // shadowOffset: {
-        // //   width: 0,
-        // //   height: 3,
-        // // },
-        // shadowOpacity: 0.23,
-        // shadowRadius: 2.62,
-        // elevation: 4,
+        marginBottom: 15,   
       },
       text: {
         fontSize: 16,

@@ -1,15 +1,25 @@
 import React,{ useState} from 'react';
-import { StyleSheet, View ,Pressable , SafeAreaView , Platform , StatusBar, Image ,TouchableOpacity } from 'react-native';  
-import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
-import Button from './Button';
-import LayerCard from './LayerCard';
+import { Alert,StyleSheet, View , SafeAreaView , Platform , StatusBar, Image ,TouchableOpacity } from 'react-native';  
 import { dummyData } from './dummyData';
+import LayerCard from './LayerCard';
+
+import Button from './Button';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-
 function JoinLayerScreen( {navigation,route} ) {
     const [layer,setLayer] = useState("")
+
+    const onNextPressed = () => {             
+        if (!layer) {
+            Alert.alert('Warning', 'Please select your layer.', [          
+                {text: 'OK', onPress: () => console.log('OK Pressed')},
+              ]);        
+            return;
+        }
+        console.log("Done Pressed")         
+    };
     return (
         < SafeAreaView style={ styles.container}>
             <View style={ styles.maintext  }>
@@ -26,7 +36,7 @@ function JoinLayerScreen( {navigation,route} ) {
                 <TouchableOpacity onPress={() => navigation.goBack() } >
                     <Image source={require( '../assets/back2.png')} />    
                 </TouchableOpacity>    
-                <TouchableOpacity onPress={() => console.log(layer)} >
+                <TouchableOpacity onPress={onNextPressed} >
                     <Image source={require( '../assets/doneBtn.png')} />    
                 </TouchableOpacity >            
             </View>  

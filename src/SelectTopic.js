@@ -1,9 +1,20 @@
 import React, { useState} from 'react';
-import { Image , StyleSheet, Platform, StatusBar , View, Button, TouchableOpacity} from 'react-native';
+import { Alert, Image , StyleSheet, Platform, StatusBar , View, TouchableOpacity} from 'react-native';
 import SelectCard from './SelectCard';
 
 function SelectTopic({navigation}) {
-    const [select,setSelect] = useState({ topic:'WTF' , sad:'sad' })
+    const [select,setSelect] = useState("")    
+
+    const onNextPressed = () => {             
+        if (!select) {
+            Alert.alert('Warning', 'Please select your stitched.', [          
+                {text: 'OK', onPress: () => console.log('OK Pressed')},
+              ]);        
+            return;
+        }
+        navigation.navigate('JoinLayerScreen')          
+    };
+
     return (
         < View style={ styles.container}>
             <View style={ styles.maintext  }>
@@ -28,7 +39,7 @@ function SelectTopic({navigation}) {
                     <TouchableOpacity onPress={() => navigation.push('JoinLayerScreen')} >
                         <Image source={require( '../assets/skipBtn.png')} />    
                     </TouchableOpacity >            
-                    <TouchableOpacity onPress={() => navigation.navigate({name:'JoinLayerScreen', params: select })} >
+                    <TouchableOpacity onPress={onNextPressed} >
                         <Image source={require( '../assets/nextBtn.png')} />    
                     </TouchableOpacity >            
 

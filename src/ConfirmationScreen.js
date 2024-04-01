@@ -6,11 +6,11 @@ import { Image, Platform, StatusBar } from 'react-native';
 
 export default function ConfirmationScreen({ navigation , route} )  {
     const userEmailAddress = 'johndoe@email.com' // route.params
-    const ee = route.params.email.value
+    const email = route.params.email.value
     useEffect(() => {
         const timer = setTimeout(() => {
-            navigation.navigate('TwoFAOptInScreen');
-        }, 2500);
+            navigation.navigate('TwoFAOptInScreen',{email});
+        }, 3500);
 
         return () => clearTimeout(timer);
     }, []);    
@@ -28,7 +28,7 @@ export default function ConfirmationScreen({ navigation , route} )  {
               <Text style={styles.emailText}>sent to 
                   {/* {' ' + '***' + userEmailAddress.slice(3)} */}
                   {/* {' ' + '***' + ee.value}   */}
-                  {' ' + ee }  
+                  {' ' + email }  
               </Text>
             </View>
         </View>

@@ -1,12 +1,22 @@
-import React, {useRef} from 'react';
-import { Text,Image , StyleSheet, Platform, StatusBar , View, Button, TouchableOpacity} from 'react-native';
+import React, {useRef , useState} from 'react';
+import { Alert,Image , StyleSheet, Platform, StatusBar , View, Button, TouchableOpacity} from 'react-native';
 import RBSheet from "react-native-raw-bottom-sheet";
 
 function AddProfilePhoto({navigation,route}) {
-
-    console.log(route.params.test.ff)
-
+    const [addPhoto,setAddPhoto] = useState(false)
     const refRBSheet = useRef();
+
+    const onNextPressed = () => {
+             
+        if (!addPhoto) {
+            Alert.alert('Warning', 'Please add profile photo.', [          
+                {text: 'OK', onPress: () => console.log('OK Pressed')},
+              ]);        
+            return;
+        }
+        navigation.navigate('AddBannerPhoto')          
+    };
+
     return (       
         < View style={ styles.container}>
             <View style={ styles.maintext  }>
@@ -18,7 +28,7 @@ function AddProfilePhoto({navigation,route}) {
             <View style={{zIndex:1}}>
                 <TouchableOpacity
                 style={styles.image}
-                onPress={() => refRBSheet.current.open()}
+                onPress={() => {refRBSheet.current.open() , setAddPhoto(true) }}
                 >
                     <Image source={require( '../assets/cameraIcon.png')}/> 
                 </TouchableOpacity>
@@ -57,7 +67,7 @@ function AddProfilePhoto({navigation,route}) {
                     <TouchableOpacity onPress={() => navigation.push('AddBannerPhoto')} >
                         <Image source={require( '../assets/skipBtn.png')} />    
                     </TouchableOpacity >            
-                    <TouchableOpacity onPress={() => navigation.navigate('AddBannerPhoto')} >
+                    <TouchableOpacity onPress={onNextPressed} >
                         <Image source={require( '../assets/nextBtn.png')} />    
                     </TouchableOpacity >    
                 </View>
@@ -91,7 +101,7 @@ const styles = StyleSheet.create({
         position:'absolute',
         flexDirection:'row',
         alignItems:'center',   
-        columnGap: 180,
+        columnGap: 160,
         bottom:'5%'
     }
 })

@@ -6,13 +6,13 @@ import Logo from './components/Logo'
 import Header from './components/Header'
 import Button from './components/Button'
 import TextInput from './components/TextInput'
-import BackButton from './components/BackButton'
 import { theme } from './theme'
 import { emailValidator } from './helpers/emailValidator'
 import { passwordValidator } from './helpers/passwordValidator'
 import Icon from './components/Icon'
 import { socialIconList } from './components/Icon/socialIconList'
 import HorizontalLine from './components/HorizontalLine'
+import BackButton from './components/BackButton'
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState({ value: '', error: '' });
@@ -29,8 +29,7 @@ export default function LoginScreen({ navigation }) {
     }
     navigation.reset({
       index: 0,
-      // routes: [{ name: 'LoginOTPVerificationScreen' }],
-      routes: [{ name: "TwoFactorAuthScreen", params:email }],
+      routes: [{ name: "SignInTwoFA" , params: {email} }],
       
     });
   };
@@ -98,8 +97,6 @@ export default function LoginScreen({ navigation }) {
       <View style={[styles.row, { marginTop: 20 }]}>
         <Text style={styles.signUpText}>No account? </Text>
         <TouchableOpacity onPress={ ()=> navigation.navigate('SignUpScreen')} >  
-        {/* <TouchableOpacity onPress={ () => navigation.navigate('JoinLayerScreen')} >   */}
-        {/* <TouchableOpacity onPress={() =>  navigation.replace('SignUpScreen')}>  */}
           <Text style={styles.link}>Sign up</Text>
         </TouchableOpacity>
       </View>

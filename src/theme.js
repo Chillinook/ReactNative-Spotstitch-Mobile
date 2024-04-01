@@ -13,6 +13,7 @@ export const theme = {
     darkGray: '#666666',
     verificationGreen: '#46B85F',
     lightBlue: '#B9CFF4',
+    lightGreen: '#A5DC7Aff',
   },
 }
 

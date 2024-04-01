@@ -32,20 +32,11 @@ export default function SignUpScreen({ navigation }) {
             return;
         }
 
-        navigation.navigate('ConfirmationScreen' , {email} )
+        navigation.navigate('ConfirmationScreen' , {email} )      
 
         // navigation.reset({
-        //     index:1 ,
-        //     action: navigation.navigate('ConfirmationScreen' , {email} ),
-        // })
-        
-
-        // navigation.reset('ConfirmationScreen' , {email})
-
-        // navigation.reset({
-        //     index: 0,
-        //     // routes: [{ name: 'ConfirmationScreen' ,  params:email } ],
-        //     routes: [{name:'ConfirmationScreen' , params: email } ] ,
+        //     index: 0,    
+        //     routes: [{name:'ConfirmationScreen' , params: {email} } ] ,
         // });
 
    

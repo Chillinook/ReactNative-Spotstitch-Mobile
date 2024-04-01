@@ -1,8 +1,22 @@
-import React from 'react';
-import { Image , StyleSheet, Platform, StatusBar , View, Text,ArrowRightIcon, ScrollView, Touchable, TouchableOpacity} from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons'
+import React ,{useState}from 'react';
+import { Image , StyleSheet, Platform, StatusBar , View, Text, Alert , TouchableOpacity} from 'react-native';
 
 function AddBannerPhoto({navigation}) {
+    const [addBannerPhoto,setAddBannerPhoto] = useState(false)
+
+
+    const onNextPressed = () => {
+             
+        if (!addBannerPhoto) {
+            Alert.alert('Warning', 'Please select banner photo.', [          
+                {text: 'OK', onPress: () => console.log('OK Pressed')},
+              ]);        
+            return;
+        }
+        navigation.navigate('SelectTopic')          
+    };
+
+
     return (
         < View style={ styles.container}>
         <View style={ styles.maintext  }>
@@ -16,10 +30,9 @@ function AddBannerPhoto({navigation}) {
         <View style={ styles.layer} >            
             <TouchableOpacity
                 style={styles.camera}
-                onPress={() => { console.log('Camera') }}
+                onPress={() => { console.log('Camera'), setAddBannerPhoto(true)  }}
             >
                 <Image source={require( '../assets/cameraIcon.png')}/> 
-                {/* <MaterialCommunityIcons name="camera-outline" size={27} color="#000" /> */}
             </TouchableOpacity>
         </View>
         <View  style={ styles.imagecontainer }>
@@ -28,12 +41,9 @@ function AddBannerPhoto({navigation}) {
             onPress={() => { console.log('Edit') }}
             >
             <Image source={require( '../assets/editIcon.png')}/> 
-            {/* <MaterialCommunityIcons name="pencil" size={27} color="#000" /> */}
             </TouchableOpacity>
             <Image
-            source={require( '../assets/avatar.png')}
-            //   style={{ position:'absolute', top:'45%'}}
-            //   style={styles.userAvatar}
+            source={require( '../assets/avatar.png')}           
             />
             <Text style={ styles.username}>John Doe</Text>
         </View>
@@ -45,7 +55,7 @@ function AddBannerPhoto({navigation}) {
                     <TouchableOpacity onPress={() => navigation.push('SelectTopic')} >
                         <Image source={require( '../assets/skipBtn.png')} />    
                     </TouchableOpacity >            
-                    <TouchableOpacity onPress={() => navigation.navigate('SelectTopic') } >
+                    <TouchableOpacity onPress={onNextPressed} >
                         <Image source={require( '../assets/nextBtn.png')} />    
                     </TouchableOpacity >    
                 </View>
@@ -73,24 +83,16 @@ const styles = StyleSheet.create({
         height:'6%',     
     },
     camera: {
-        // backgroundColor: '#C7C9CB',
-        // backgroundColor: '#fff',
         position: 'absolute',
         top: '6%',
         right: '2%',
-        padding: 2,
-        // borderColor:'#000',
-        // borderWidth:1,
-        // borderRadius: 7,
+        padding: 2,  
         zIndex: 1,
       },
       image: {
-        // backgroundColor: '#C7C9CB',
         position: 'absolute',
         top: '2%',
-        right: '2%',
-        // padding: 2,
-        // borderRadius: 7,
+        right: '2%',  
         zIndex: 1,
       }, 
       imagecontainer:{

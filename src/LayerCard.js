@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, StyleSheet, FlatList} from 'react-native';
-// import LayerButton from './FromRepo/LayerButton';
 import LayerButton from './LayerButton';
 
 function LayerCard(props) {

@@ -58,11 +58,6 @@ export default function App() {
           {/* <Stack.Screen name="CreateBioScreen" component={CreateBioScreen} /> */}
           {/* <Stack.Screen name="SocialMediaConnectScreen" component={SocialMediaConnectScreen} /> */}
 
-          {/* <SelectTopic/> */}
-          {/* // <AddBannerPhoto/> */}
-          {/* // <JoinLayerScreen/> */} 
-          {/* <AddProfilePhoto/> */}
-
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

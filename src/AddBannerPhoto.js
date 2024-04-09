@@ -4,7 +4,6 @@ import { Image , StyleSheet, Platform, StatusBar , View, Text, Alert , Touchable
 function AddBannerPhoto({navigation}) {
     const [addBannerPhoto,setAddBannerPhoto] = useState(false)
 
-
     const onNextPressed = () => {
              
         if (!addBannerPhoto) {
@@ -15,7 +14,6 @@ function AddBannerPhoto({navigation}) {
         }
         navigation.navigate('SelectTopic')          
     };
-
 
     return (
         < View style={ styles.container}>

@@ -1,28 +1,29 @@
-import JoinLayerScreen from './src/JoinLayerScreen';
-import SelectTopic from './src/SelectTopic';
-import AddBannerPhoto from './src/AddBannerPhoto';
-import AddProfilePhoto from './src/AddProfilePhoto';
 import { Provider } from 'react-native-paper'
-import { theme } from './src/theme';
+import { theme } from './src/components/theme';
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
+import SelectTopic from './src/SelectTopic';
+import JoinLayerScreen from './src/JoinLayerScreen';
+import AddProfilePhoto from './src/AddProfilePhoto';
+import AddBannerPhoto from './src/AddBannerPhoto';
 import LoadingScreen from './src/LoadingScreen'
 import LoginScreen from './src/LoginScreen'
 import SignUpScreen from './src/SignUpScreen'
 import ConfirmationScreen from './src/ConfirmationScreen';
 import TwoFAOptInScreen from './src/TwoFAOptInScreen';
-import React, { useState } from 'react';
+import React from 'react';
 import SignUpTwoFA from './src/SignUpTwoFA';
 import CreateBio from './src/CreateBio';
 import ConnectSocials from './src/ConnectSocials';
 import SignInTwoFA from './src/SignInTwoFA';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import TwoFactorAuthScreen from './src/TwoFactorAuthScreen'
-import CreateBioScreen from './src/CreateBioScreen'
-import RegisterScreen from './src/RegisterScreen';
-import AccountVerificationScreen from './src/AccountVerificationScreen';
-import SocialMediaConnectScreen from './src/SocialMediaConnectScreen';
+
+// import { StatusBar } from 'expo-status-bar';
+// import { StyleSheet, Text, View } from 'react-native';
+// import TwoFactorAuthScreen from './src/TwoFactorAuthScreen'
+// import CreateBioScreen from './src/cleaning/CreateBioScreen'
+// import RegisterScreen from './src/cleaning/RegisterScreen';
+// import AccountVerificationScreen from './src/cleaning/AccountVerificationScreen';
+// import SocialMediaConnectScreen from './src/cleaning/SocialMediaConnectScreen';
 
 const Stack = createStackNavigator()
 

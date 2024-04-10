@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import { TouchableOpacity, StyleSheet, View } from 'react-native'
 import { Text } from 'react-native-paper'
-import { theme } from './theme'
+import { theme } from './components/theme'
 import { Image, Platform, StatusBar } from 'react-native';
 
 export default function ConfirmationScreen({ navigation , route} )  {
@@ -25,9 +25,7 @@ export default function ConfirmationScreen({ navigation , route} )  {
             <Text style={styles.messageText}>A confirmation email has been</Text>
 
             <View style={styles.row}>
-              <Text style={styles.emailText}>sent to 
-                  {/* {' ' + '***' + userEmailAddress.slice(3)} */}
-                  {/* {' ' + '***' + ee.value}   */}
+              <Text style={styles.emailText}>sent to                
                   {' ' + email }  
               </Text>
             </View>
@@ -43,7 +41,7 @@ export default function ConfirmationScreen({ navigation , route} )  {
 
         <View style={ styles.lastRow } >
             <TouchableOpacity onPress={() => navigation.goBack() } >
-                <Image source={require( '../assets/back2.png')}  />    
+                <Image source={require( './assets/back2.png')}  />    
             </TouchableOpacity>
 
             <View style={{ flexDirection:'row', alignItems:'center' , columnGap:100}}>

@@ -20,10 +20,10 @@ export default function ConnectSocials({navigation}) {
     return (
         <View style={styles.container}>
             <View style={styles.mainText}>
-                    <Image source={require( '../assets/ConnectSocial.png' )} />
+                    <Image source={require( './assets/ConnectSocial.png' )} />
             </View >
             <View style={styles.subText}>
-                    <Image source={require( '../assets/Linkaccounts.png' )} />
+                    <Image source={require( './assets/Linkaccounts.png' )} />
             </View>
             <View>
                 <SocialMediaButton
@@ -58,16 +58,16 @@ export default function ConnectSocials({navigation}) {
 
             <View style={ styles.lastRow } >
                 <TouchableOpacity onPress={() => navigation.goBack()  } >
-                    <Image source={require( '../assets/back2.png')}/>    
+                    <Image source={require( './assets/back2.png')}/>    
                 </TouchableOpacity>  
 
                 <View style={{ flexDirection:'row', alignItems:'center' , columnGap:20}}>
                     <TouchableOpacity onPress={() => navigation.navigate('AddProfileScreen')} >
-                        <Image source={require( '../assets/skipBtn.png')} />    
+                        <Image source={require( './assets/skipBtn.png')} />    
                     </TouchableOpacity >
 
                     <TouchableOpacity onPress={onNextPressed} >
-                        <Image source={require( '../assets/nextBtn.png')} />    
+                        <Image source={require( './assets/nextBtn.png')} />    
                     </TouchableOpacity >    
                 </View>
             </View> 

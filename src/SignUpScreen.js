@@ -31,14 +31,7 @@ export default function SignUpScreen({ navigation }) {
             setPassword({ ...password, error: passwordError });
             return;
         }
-
         navigation.navigate('ConfirmationScreen' , {email} )      
-
-        // navigation.reset({
-        //     index: 0,    
-        //     routes: [{name:'ConfirmationScreen' , params: {email} } ] ,
-        // });
-
    
     };
   
@@ -48,10 +41,10 @@ export default function SignUpScreen({ navigation }) {
   
     return (
         <View style={styles.container}>
-            <Image source={require( './boxLogo.png' )} />
+            <Image source={require( './assets/boxLogo.png' )} />
 
             <View style={ styles.mainText}>
-                <Image source={require( './signupSocMed.png' )} />
+                <Image source={require( './assets/signupSocMed.png' )} />
             </View>
 
             <View style={[styles.row, styles.icons]}>

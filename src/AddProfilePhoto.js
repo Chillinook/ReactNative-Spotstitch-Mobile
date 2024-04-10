@@ -20,19 +20,19 @@ function AddProfilePhoto({navigation,route}) {
     return (       
         < View style={ styles.container}>
             <View style={ styles.maintext  }>
-                <Image source={require( '../assets/addPhoto.png' )} />
+                <Image source={require( './assets/addPhoto.png' )} />
             </View>
             <View style={ styles.midtext}>
-                <Image source={require( '../assets/show.png')} />
+                <Image source={require( './assets/show.png')} />
             </View>  
             <View style={{zIndex:1}}>
                 <TouchableOpacity
                 style={styles.image}
                 onPress={() => {refRBSheet.current.open() , setAddPhoto(true) }}
                 >
-                    <Image source={require( '../assets/cameraIcon.png')}/> 
+                    <Image source={require( './assets/cameraIcon.png')}/> 
                 </TouchableOpacity>
-                <Image  source={require( '../assets/empty-avatar.png')} />            
+                <Image  source={require( './assets/empty-avatar.png')} />            
             </View>    
                            
             <RBSheet
@@ -52,23 +52,23 @@ function AddProfilePhoto({navigation,route}) {
                 }}
             >
                 <TouchableOpacity onPress={ ()=> console.log("Take photo")}>
-                    <Image source={require( '../assets/takePhotoIcon.png')}/> 
+                    <Image source={require( './assets/takePhotoIcon.png')}/> 
                 </TouchableOpacity>
                 <TouchableOpacity onPress={ ()=> console.log("Choose photo")}>
-                    <Image source={require( '../assets/chooseFromIcon.png')}/> 
+                    <Image source={require( './assets/chooseFromIcon.png')}/> 
                 </TouchableOpacity>
             </RBSheet>
 
             <View style={ styles.lastRow } >
                 <TouchableOpacity onPress={() => navigation.goBack() } >
-                    <Image source={require( '../assets/back2.png')}  />    
+                    <Image source={require( './assets/back2.png')}  />    
                 </TouchableOpacity>    
                 <View style={{ flexDirection:'row', alignItems:'center' , columnGap:20}}>
                     <TouchableOpacity onPress={() => navigation.push('AddBannerPhoto')} >
-                        <Image source={require( '../assets/skipBtn.png')} />    
+                        <Image source={require( './assets/skipBtn.png')} />    
                     </TouchableOpacity >            
                     <TouchableOpacity onPress={onNextPressed} >
-                        <Image source={require( '../assets/nextBtn.png')} />    
+                        <Image source={require( './assets/nextBtn.png')} />    
                     </TouchableOpacity >    
                 </View>
             </View> 

@@ -18,29 +18,29 @@ function SelectTopic({navigation}) {
     return (
         < View style={ styles.container}>
             <View style={ styles.maintext  }>
-                <Image source={require( '../assets/let.png' )}
+                <Image source={require( './assets/let.png' )}
                 />
             </View>
             <View style={ styles.midtext}>
-                <Image source={require( '../assets/find.png')}
+                <Image source={require( './assets/find.png')}
                 />
             </View>
             <View style={ styles.detailtext}>
-            <Image source={require( '../assets/select.png')}
+            <Image source={require( './assets/select.png')}
                 />
             </View>
             <SelectCard setSelect={setSelect} select={select}/>           
             <View style={ styles.lastRow }
             >
                 <TouchableOpacity onPress={() => navigation.goBack() } >
-                    <Image source={require( '../assets/back2.png')} />    
+                    <Image source={require( './assets/back2.png')} />    
                 </TouchableOpacity>    
                 <View style={{ flexDirection:'row', alignItems:'center' , columnGap:20}}>
                     <TouchableOpacity onPress={() => navigation.push('JoinLayerScreen')} >
-                        <Image source={require( '../assets/skipBtn.png')} />    
+                        <Image source={require( './assets/skipBtn.png')} />    
                     </TouchableOpacity >            
                     <TouchableOpacity onPress={onNextPressed} >
-                        <Image source={require( '../assets/nextBtn.png')} />    
+                        <Image source={require( './assets/nextBtn.png')} />    
                     </TouchableOpacity >            
 
                 </View>

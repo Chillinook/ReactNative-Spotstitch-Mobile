@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import Background from './Background';
-import Logo from './Logo';
+import Background from './components/Background';
+import Logo from './components/Logo';
 import Paragraph from './Paragraph';
 
 

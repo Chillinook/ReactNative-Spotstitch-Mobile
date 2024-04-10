@@ -3,11 +3,6 @@ import { Alert,StyleSheet, View , SafeAreaView , Platform , StatusBar, Image ,To
 import { dummyData } from './dummyData';
 import LayerCard from './LayerCard';
 
-import Button from './Button';
-import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
 function JoinLayerScreen( {navigation,route} ) {
     const [layer,setLayer] = useState("")
 
@@ -23,21 +18,21 @@ function JoinLayerScreen( {navigation,route} ) {
     return (
         < SafeAreaView style={ styles.container}>
             <View style={ styles.maintext  }>
-                <Image source={require( '../assets/sew.png' )} />
+                <Image source={require( './assets/sew.png' )} />
             </View>
             <View style={ styles.midtext}>
-                <Image source={require( '../assets/layer.png')} />
+                <Image source={require( './assets/layer.png')} />
             </View>
             <View style={ styles.detailtext}>
-                <Image source={require( '../assets/detail.png')} />
+                <Image source={require( './assets/detail.png')} />
             </View>           
             <LayerCard dummyData={ dummyData } setLayer={setLayer} layer={layer} />  
             <View style={ styles.lastRow } >
                 <TouchableOpacity onPress={() => navigation.goBack() } >
-                    <Image source={require( '../assets/back2.png')} />    
+                    <Image source={require( './assets/back2.png')} />    
                 </TouchableOpacity>    
                 <TouchableOpacity onPress={onNextPressed} >
-                    <Image source={require( '../assets/doneBtn.png')} />    
+                    <Image source={require( './assets/doneBtn.png')} />    
                 </TouchableOpacity >            
             </View>  
         </SafeAreaView>        

@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text,TouchableOpacity, StyleSheet ,Platform,Image,StatusBar} from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { theme } from './theme'
+import { theme } from './components/theme'
 
 export default function SocialMediaButton({
   title,

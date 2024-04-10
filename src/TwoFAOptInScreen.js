@@ -16,11 +16,8 @@ export default function TwoFAOptInScreen({ navigation,route }) {
             setPhoneNumber({ ...phoneNumber, error: phoneError });           
             return;
         }
-        navigation.navigate('SignUpTwoFA', { email,phoneNumber })      
-        // navigation.reset({
-        //     index: 0,    
-        //     routes: [{name:'SignUpTwoFA' , params: {email,phoneNumber} } ] ,
-        // });   
+        navigation.navigate('SignUpTwoFA', { email,phoneNumber })     
+     
     };
 
     return (
@@ -58,17 +55,17 @@ export default function TwoFAOptInScreen({ navigation,route }) {
 
             <View style={ styles.lastRow } >
                 <TouchableOpacity onPress={() => navigation.goBack()  } >
-                    <Image source={require( '../assets/back2.png')}/>    
+                    <Image source={require( './assets/back2.png')}/>    
                 </TouchableOpacity>  
 
                 <View style={{ flexDirection:'row', alignItems:'center' , columnGap:20}}>
                     <TouchableOpacity onPress={() => navigation.navigate('CreateBio',{ email })} >
-                        <Image source={require( '../assets/skipBtn.png')} />    
+                        <Image source={require( './assets/skipBtn.png')} />    
                     </TouchableOpacity >
 
                     {/* <TouchableOpacity onPress={() => navigation.navigate('SignUpTwoFA', { email,phoneNumber } )} > */}
                     <TouchableOpacity onPress={onNextPressed} >
-                        <Image source={require( '../assets/nextBtn.png')} />    
+                        <Image source={require( './assets/nextBtn.png')} />    
                     </TouchableOpacity >    
                 </View>
             </View> 

@@ -18,11 +18,11 @@ function AddBannerPhoto({navigation}) {
     return (
         < View style={ styles.container}>
         <View style={ styles.maintext  }>
-            <Image source={require( '../assets/add.png' )}
+            <Image source={require( './assets/add.png' )}
             />
         </View>
         <View style={ styles.midtext}>
-            <Image source={require( '../assets/personal.png')}
+            <Image source={require( './assets/personal.png')}
             />
         </View>
         <View style={ styles.layer} >            
@@ -30,7 +30,7 @@ function AddBannerPhoto({navigation}) {
                 style={styles.camera}
                 onPress={() => { console.log('Camera'), setAddBannerPhoto(true)  }}
             >
-                <Image source={require( '../assets/cameraIcon.png')}/> 
+                <Image source={require( './assets/cameraIcon.png')}/> 
             </TouchableOpacity>
         </View>
         <View  style={ styles.imagecontainer }>
@@ -38,23 +38,23 @@ function AddBannerPhoto({navigation}) {
             style={styles.image}
             onPress={() => { console.log('Edit') }}
             >
-            <Image source={require( '../assets/editIcon.png')}/> 
+            <Image source={require( './assets/editIcon.png')}/> 
             </TouchableOpacity>
             <Image
-            source={require( '../assets/avatar.png')}           
+            source={require( './assets/avatar.png')}           
             />
             <Text style={ styles.username}>John Doe</Text>
         </View>
         <View style={ styles.lastRow } >
                 <TouchableOpacity onPress={() => navigation.goBack()} >
-                    <Image source={require( '../assets/back2.png')} onPress={() => navigation.goBack()} />    
+                    <Image source={require( './assets/back2.png')} onPress={() => navigation.goBack()} />    
                 </TouchableOpacity>    
                 <View style={{ flexDirection:'row', alignItems:'center' , columnGap:20}}>
                     <TouchableOpacity onPress={() => navigation.push('SelectTopic')} >
-                        <Image source={require( '../assets/skipBtn.png')} />    
+                        <Image source={require( './assets/skipBtn.png')} />    
                     </TouchableOpacity >            
                     <TouchableOpacity onPress={onNextPressed} >
-                        <Image source={require( '../assets/nextBtn.png')} />    
+                        <Image source={require( './assets/nextBtn.png')} />    
                     </TouchableOpacity >    
                 </View>
         </View>             

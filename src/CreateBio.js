@@ -1,12 +1,13 @@
 import React ,{ useState} from 'react'
 import { View,Text,TouchableOpacity, StyleSheet ,Platform,Image,StatusBar} from 'react-native'
 import TextInput from './components/TextInput'
-import { theme } from './theme'
+import { theme } from './components/theme'
 import { bioValidator } from './helpers/bioValidator'
-import { Icon} from 'react-native-paper'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { passwordValidator } from './helpers/passwordValidator'
 import { locationValidator } from './helpers/locationValidator'
+
+import { passwordValidator } from './helpers/passwordValidator'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { Icon} from 'react-native-paper'
 
 export default function CreateBio({navigation,route}) {
   const [bio, setBio] = useState( { value:'' , error:''})
@@ -35,7 +36,7 @@ export default function CreateBio({navigation,route}) {
             </Text>
         </View>
         <View >
-            <Image source={require( '../assets/letsget.png' )} />
+            <Image source={require( './assets/letsget.png' )} />
         </View>
         <View >
             <TextInput 
@@ -55,7 +56,6 @@ export default function CreateBio({navigation,route}) {
             />
         </View>
         <View style={ styles.phoneContainer}>
-        {/* <View style={ styles.searchContainer}> */}
             <TextInput
                 label="Location"
                 returnKeyType="next"
@@ -73,15 +73,14 @@ export default function CreateBio({navigation,route}) {
         {keyFocus ?
             <View style={ styles.lastRow } >
                     <TouchableOpacity onPress={() => navigation.goBack()  } >
-                        <Image source={require( '../assets/back2.png')}/>    
+                        <Image source={require( './assets/back2.png')}/>    
                     </TouchableOpacity>  
                     <View style={{ flexDirection:'row', alignItems:'center' , columnGap:20}}>
                         <TouchableOpacity onPress={() => navigation.navigate('AddProfileScreen')} >
-                            <Image source={require( '../assets/skipBtn.png')} />    
+                            <Image source={require( './assets/skipBtn.png')} />    
                         </TouchableOpacity >
                         <TouchableOpacity onPress={onNextPressed} >
-                        {/* <TouchableOpacity onPress={() => navigation.navigate('ConnectSocials' )} > */}
-                            <Image source={require( '../assets/nextBtn.png')} />    
+                            <Image source={require( './assets/nextBtn.png')} />    
                         </TouchableOpacity >    
                     </View>
             </View> 

@@ -1,7 +1,7 @@
 import { Image,View, Text, TouchableOpacity ,StyleSheet,Platform,StatusBar} from 'react-native'
 import React, { useState } from 'react'
 import TextInput from './components/TextInput'
-import { theme } from './theme'
+import { theme } from './components/theme'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { twoFAValidator } from './helpers/twoFAValidator'
 
@@ -23,10 +23,10 @@ export default function SignUpTwoFA({ navigation, route }) {
   return (
     <SafeAreaView style={styles.container}>      
       <View style={ styles.subText} >
-        <Image source={require( '../assets/TwoFAauthen.png' )} />
+        <Image source={require( './assets/TwoFAauthen.png' )} />
       </View>
       <View style={ styles.subText} >
-        <Image source={require( '../assets/2FAActivation.png' )} />
+        <Image source={require( './assets/2FAActivation.png' )} />
       </View>
       <View style={ styles.phoneContainer}>
         <Text style={styles.messageText}>An authentication code has been sent to 
@@ -50,10 +50,10 @@ export default function SignUpTwoFA({ navigation, route }) {
        </View>
        <View style={ styles.lastRow } >
                 <TouchableOpacity onPress={() => navigation.goBack()  } >
-                    <Image source={require( '../assets/back2.png')}/>    
+                    <Image source={require( './assets/back2.png')}/>    
                 </TouchableOpacity>                
                 <TouchableOpacity onPress={onNextPressed} >
-                    <Image source={require( '../assets/nextBtn.png')} />    
+                    <Image source={require( './assets/nextBtn.png')} />    
                 </TouchableOpacity >                  
         </View> 
     </SafeAreaView>

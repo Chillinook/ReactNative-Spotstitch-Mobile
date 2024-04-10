@@ -6,12 +6,13 @@ import Logo from './components/Logo'
 import Header from './components/Header'
 import Button from './components/Button'
 import TextInput from './components/TextInput'
-import { theme } from './theme'
+import { theme } from './components/theme'
 import { emailValidator } from './helpers/emailValidator'
 import { passwordValidator } from './helpers/passwordValidator'
 import Icon from './components/Icon'
 import { socialIconList } from './components/Icon/socialIconList'
 import HorizontalLine from './components/HorizontalLine'
+
 import BackButton from './components/BackButton'
 
 export default function LoginScreen({ navigation }) {

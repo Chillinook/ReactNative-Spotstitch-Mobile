@@ -29,13 +29,11 @@ export default function CreateBio({navigation,route}) {
 
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container}>       
+        <Text style={styles.emailText}> Welcome to </Text>
+        <Text style={styles.emailText}>  Spotstitch, {email.slice(0,3).toUpperCase()}. </Text>
+     
         <View style={styles.emailContainer}>
-            <Text style={styles.emailText}>
-                Welcome to Spotstitch, {email.slice(0,3).toUpperCase()}.
-            </Text>
-        </View>
-        <View >
             <Image source={require( './assets/letsget.png' )} />
         </View>
         <View >
@@ -101,8 +99,8 @@ const styles = StyleSheet.create({
     emailContainer: {
         alignItems: 'center',
         justifyContent: 'center',
-        marginVertical: 10,
-        marginBottom: 30,
+        marginVertical: 40,
+        marginBottom: 10,
     },
 
     emailText: {

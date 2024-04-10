@@ -13,8 +13,6 @@ import Icon from './components/Icon'
 import { socialIconList } from './components/Icon/socialIconList'
 import HorizontalLine from './components/HorizontalLine'
 
-import BackButton from './components/BackButton'
-
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState({ value: '', error: '' });
   const [password, setPassword] = useState({ value: '', error: '' });
@@ -31,16 +29,6 @@ export default function LoginScreen({ navigation }) {
     navigation.reset({
       index: 0,
       routes: [{ name: "SignInTwoFA" , params: {email} }],
-      
-    });
-  };
-
-  const onSignupPressed = () => { 
-    navigation.reset({
-      index: 0,
-      // routes: [{ name: 'LoginOTPVerificationScreen' }],
-      // routes: [{ name: "SignUpScreen" }],
-      routes: [{ name: "JoinLayerScreen" }],
       
     });
   };
@@ -126,11 +114,9 @@ const styles = StyleSheet.create({
   signInButton: {
     marginTop: 20,
     width: '40%',
-    // backgroundColor: theme.colors.gray,
     backgroundColor: '#8CBDEB'
   },
   signInText: {
-    // color: theme.colors.text,
     color: 'white',
     fontWeight: 'bold',
   },

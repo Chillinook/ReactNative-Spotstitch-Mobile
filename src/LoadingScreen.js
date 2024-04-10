@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import Background from './components/Background';
-import Logo from './components/Logo';
+import { Image, StyleSheet} from 'react-native'
 import Paragraph from './Paragraph';
-
 
 export default function LoginScreen({ navigation }) {
     useEffect(() => {
@@ -15,8 +14,16 @@ export default function LoginScreen({ navigation }) {
 
     return (
         <Background>
-            <Logo />
+            <Image source={require('./assets/roundLogo.png')} style={styles.image} />
             <Paragraph>SPOTSTITCH</Paragraph>
         </Background>
     );
 }
+
+const styles = StyleSheet.create({
+  image: {
+    width: 110,
+    height: 110,
+    marginBottom: 8,
+  },
+})

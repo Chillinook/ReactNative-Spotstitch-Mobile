@@ -63,7 +63,6 @@ export default function TwoFAOptInScreen({ navigation,route }) {
                         <Image source={require( './assets/skipBtn.png')} />    
                     </TouchableOpacity >
 
-                    {/* <TouchableOpacity onPress={() => navigation.navigate('SignUpTwoFA', { email,phoneNumber } )} > */}
                     <TouchableOpacity onPress={onNextPressed} >
                         <Image source={require( './assets/nextBtn.png')} />    
                     </TouchableOpacity >    

@@ -8,6 +8,7 @@ import { emailValidator } from './helpers/emailValidator'
 import { usernameValidator } from './helpers/usernameValidator'
 import { passwordValidator } from './helpers/passwordValidator'
 import Icon from './components/Icon'
+import Logo from './components/Logo'
 import { socialIconList } from './components/Icon/socialIconList'
 import HorizontalLine from './components/HorizontalLine'
 
@@ -33,16 +34,11 @@ export default function SignUpScreen({ navigation }) {
         }
         navigation.navigate('ConfirmationScreen' , {email} )      
    
-    };
-  
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    };
-  
+    }; 
+
     return (
         <View style={styles.container}>
-            <Image source={require( './assets/boxLogo.png' )} />
-
+            <Logo />
             <View style={ styles.mainText}>
                 <Image source={require( './assets/signupSocMed.png' )} />
             </View>

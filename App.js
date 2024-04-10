@@ -17,14 +17,6 @@ import CreateBio from './src/CreateBio';
 import ConnectSocials from './src/ConnectSocials';
 import SignInTwoFA from './src/SignInTwoFA';
 
-// import { StatusBar } from 'expo-status-bar';
-// import { StyleSheet, Text, View } from 'react-native';
-// import TwoFactorAuthScreen from './src/TwoFactorAuthScreen'
-// import CreateBioScreen from './src/cleaning/CreateBioScreen'
-// import RegisterScreen from './src/cleaning/RegisterScreen';
-// import AccountVerificationScreen from './src/cleaning/AccountVerificationScreen';
-// import SocialMediaConnectScreen from './src/cleaning/SocialMediaConnectScreen';
-
 const Stack = createStackNavigator()
 
 export default function App() {
@@ -51,13 +43,6 @@ export default function App() {
           <Stack.Screen name="AddBannerPhoto" component={AddBannerPhoto} />
           <Stack.Screen name="SelectTopic" component={SelectTopic} />
           <Stack.Screen name="JoinLayerScreen" component={JoinLayerScreen} />
-
-
-          {/* <Stack.Screen name="AccountVerificationScreen" component={AccountVerificationScreen} /> */}
-          {/* <Stack.Screen name="RegisterScreen" component={RegisterScreen} /> */}
-          {/* <Stack.Screen name="TwoFactorAuthScreen" component={TwoFactorAuthScreen} /> */}
-          {/* <Stack.Screen name="CreateBioScreen" component={CreateBioScreen} /> */}
-          {/* <Stack.Screen name="SocialMediaConnectScreen" component={SocialMediaConnectScreen} /> */}
 
         </Stack.Navigator>
       </NavigationContainer>

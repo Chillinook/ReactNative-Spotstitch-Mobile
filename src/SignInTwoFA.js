@@ -104,13 +104,11 @@ const styles =  StyleSheet.create({
         marginTop: 20,
         marginBottom:20,
         width: '40%',
-        // backgroundColor: theme.colors.gray,
         backgroundColor: 'white',
         borderWidth: 1,
         borderColor: '#8CBDEB'
     },
       signInText: {
-        // color: theme.colors.text,
         color: '#8CBDEB',
         fontWeight: 'bold',
       },

@@ -27,14 +27,13 @@ export default function SignUpTwoFA({ navigation, route }) {
       </View>
       <View style={ styles.subText} >
         <Image source={require( './assets/2FAActivation.png' )} />
-      </View>
-      <View style={ styles.phoneContainer}>
-        <Text style={styles.messageText}>An authentication code has been sent to 
-        {" " + '***-***-' + phoneNumber.value.slice(-4)+ " "}     
-           and will expire after 5 minutes.
-        </Text>
-      </View>       
+      </View>    
       
+      <Text style={styles.messageText}>An authentication code has been sent to </Text>
+      <Text style={styles.messageText}>{" " + '***-***-' + phoneNumber.value.slice(-4)+ " "}     
+          and will expire after 5</Text>
+      <Text style={styles.messageText}>minutes.</Text>
+     
       <View style={ styles.phoneContainer}>
       <TextInput
         label="6-digit code"

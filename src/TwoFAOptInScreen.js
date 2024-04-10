@@ -23,19 +23,19 @@ export default function TwoFAOptInScreen({ navigation,route }) {
     return (
         < View style={ styles.container}>
             <View >
-                <Image source={require( './images/accountVerified.png' )} />
+                <Image source={require( './assets/accountVerified.png' )} />
             </View>
 
             <View style={ styles.mainText}>
-                <Image source={require( './images/improveSecurity.png' )} />
+                <Image source={require( './assets/improveSecurity.png' )} />
             </View>
 
             <View style={ styles.subText}>
-                <Image source={require( './images/activate2F.png' )} />
+                <Image source={require( './assets/activate2F.png' )} />
             </View>
 
             <View >
-                <Image source={require( './images/signinCode.png' )} />
+                <Image source={require( './assets/signinCode.png' )} />
             </View>
 
             <View style={ styles.phoneContainer}>

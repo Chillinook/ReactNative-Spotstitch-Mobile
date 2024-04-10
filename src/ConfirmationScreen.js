@@ -18,7 +18,7 @@ export default function ConfirmationScreen({ navigation , route} )  {
     return (
     < View style={ styles.container}>
         <View style={ styles.maintext  }>
-            <Image source={require( './images/verifyAccount.png' )} />
+            <Image source={require( './assets/verifyAccount.png' )} />
         </View>
 
         <View style={styles.emailContainer}>

@@ -6,8 +6,10 @@ import LayerCard from './LayerCard';
 function JoinLayerScreen( {navigation,route} ) {
     const [layer,setLayer] = useState("")
 
-    const onNextPressed = () => {             
+    const onNextPressed = () => {          
+        // Check if a layer option is selected.   
         if (!layer) {
+            // Show an alert if no layer option is selected.
             Alert.alert('Warning', 'Please select your layer.', [          
                 {text: 'OK', onPress: () => console.log('OK Pressed')},
               ]);        

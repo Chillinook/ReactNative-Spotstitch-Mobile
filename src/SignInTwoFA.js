@@ -10,8 +10,11 @@ import { twoFAValidator } from './helpers/twoFAValidator'
 export default function SignInTwoFA({ navigation, route }) {
   const [twoFA, setTwoFA] = useState({ value:'', error:''})
   const userPhoneNumber = '000-000-0000' // route.params
+
+  // Extracting the email value from the route parameters
   const email = route.params.email.value
 
+  // Function to handle the action when the "Continue" button is pressed.
   const onContinuePressed = () => {             
     const twoFAError = twoFAValidator(twoFA.value);
     if (twoFAError) {

@@ -7,6 +7,8 @@ import { Image, Platform, StatusBar } from 'react-native';
 export default function ConfirmationScreen({ navigation , route} )  {
     const userEmailAddress = 'johndoe@email.com' // route.params
     const email = route.params.email.value
+
+    // useEffect hook to navigate to 'TwoFAOptInScreen' after a delay
     useEffect(() => {
         const timer = setTimeout(() => {
             navigation.navigate('TwoFAOptInScreen',{email});

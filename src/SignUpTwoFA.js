@@ -8,15 +8,24 @@ import { twoFAValidator } from './helpers/twoFAValidator'
 export default function SignUpTwoFA({ navigation, route }) {
   // const [phoneNumber, setPhoneNumber] = React.useState('')
   // const userPhoneNumber = '000-000-0000' // route.params
+
+  // Using the useState hook to manage state for two-factor authentication.
+  // 'twoFA' holds the state value and error message for the two-factor authentication input.
   const [twoFA, setTwoFA] = useState({ value:'', error:''})
+
+  // Destructuring the 'email' and 'phoneNumber' from the 'route.params' object.
   const {email,phoneNumber} = route.params 
 
-  const onNextPressed = () => {             
+  // Function to handle the action when the "Next" button is pressed.
+  const onNextPressed = () => {      
+
+    // If there's an error in the two-factor authentication input, update the state with the error message.
     const twoFAError = twoFAValidator(twoFA.value);
     if (twoFAError) {
       setTwoFA({ ...twoFA, error: twoFAError });           
       return;
     }
+    // If no error, navigate to the 'CreateBio' screen passing the email as a parameter.
     navigation.navigate('CreateBio', {email} )         
 };
   
@@ -34,6 +43,7 @@ export default function SignUpTwoFA({ navigation, route }) {
           and will expire after 5</Text>
       <Text style={styles.messageText}>minutes.</Text>
      
+      {/* Input field for the 6-digit authentication code */}
       <View style={ styles.phoneContainer}>
       <TextInput
         label="6-digit code"

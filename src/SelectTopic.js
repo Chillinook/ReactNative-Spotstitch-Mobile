@@ -5,7 +5,8 @@ import SelectCard from './SelectCard';
 function SelectTopic({navigation}) {
     const [select,setSelect] = useState("")    
 
-    const onNextPressed = () => {             
+    const onNextPressed = () => {      
+        // Show an alert if no stitched option is selected.       
         if (!select) {
             Alert.alert('Warning', 'Please select your stitched.', [          
                 {text: 'OK', onPress: () => console.log('OK Pressed')},

@@ -18,6 +18,7 @@ export default function LoginScreen({ navigation }) {
   const [password, setPassword] = useState({ value: '', error: '' });
   const [showPassword, setShowPassword] = useState(false);
 
+  // Function to handle the action when the "Login" button is pressed.
   const onLoginPressed = () => {
     const emailError = emailValidator(email.value);
     const passwordError = passwordValidator(password.value);
@@ -26,6 +27,8 @@ export default function LoginScreen({ navigation }) {
       setPassword({ ...password, error: passwordError });
       return;
     }
+
+    // If no errors, navigate to the "SignInTwoFA" screen and pass the email as a parameter.
     navigation.reset({
       index: 0,
       routes: [{ name: "SignInTwoFA" , params: {email} }],
@@ -53,20 +56,22 @@ export default function LoginScreen({ navigation }) {
         textContentType="emailAddress"
         keyboardType="email-address"
       />
-        <TouchableOpacity onPress={togglePasswordVisibility}>
-          <Text style={{ fontSize: 12, color: 'blue', marginLeft: 10 }}>
-            {showPassword ? 'Hide' : 'Show'}
-          </Text>
-        </TouchableOpacity>
-        <TextInput
-          label="Password"
-          returnKeyType="done"
-          value={password.value}
-          onChangeText={(text) => setPassword({ value: text, error: '' })}
-          error={!!password.error}
-          errorText={password.error}
-          secureTextEntry={!showPassword}
-        />
+
+      {/* TouchableOpacity component to toggle password visibility */}
+      <TouchableOpacity onPress={togglePasswordVisibility}>
+        <Text style={{ fontSize: 12, color: 'blue', marginLeft: 10 }}>
+          {showPassword ? 'Hide' : 'Show'}
+        </Text>
+      </TouchableOpacity>
+      <TextInput
+        label="Password"
+        returnKeyType="done"
+        value={password.value}
+        onChangeText={(text) => setPassword({ value: text, error: '' })}
+        error={!!password.error}
+        errorText={password.error}
+        secureTextEntry={!showPassword}
+      />
       <Button style={styles.signInButton} mode="contained" onPress={onLoginPressed}>
         <Text style={styles.signInText}>Sign in</Text>
       </Button>

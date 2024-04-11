@@ -32,8 +32,7 @@ export default function SignUpScreen({ navigation }) {
             setPassword({ ...password, error: passwordError });
             return;
         }
-        navigation.navigate('ConfirmationScreen' , {email} )      
-   
+        navigation.navigate('ConfirmationScreen' , {email} )        
     }; 
 
     return (
@@ -44,6 +43,7 @@ export default function SignUpScreen({ navigation }) {
             </View>
 
             <View style={[styles.row, styles.icons]}>
+                {/* Mapping through the socialIconList to render each social icon */}
                 {socialIconList.map((item) => {
                   return (
                     <Icon

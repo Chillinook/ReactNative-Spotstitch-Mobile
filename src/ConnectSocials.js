@@ -13,6 +13,7 @@ export default function ConnectSocials({navigation}) {
               ]);        
             return;
         }
+        // If at least one social media is selected, navigate to the 'AddProfileScreen'.
         console.log(social)
         navigation.navigate('AddProfileScreen')          
     };

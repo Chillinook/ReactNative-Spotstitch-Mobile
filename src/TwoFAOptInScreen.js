@@ -9,6 +9,7 @@ export default function TwoFAOptInScreen({ navigation,route }) {
     const userPhoneNumber = '000-000-0000' // route.params
     const email= route.params.email 
 
+    // Function to handle the action when the "Next" button is pressed.
     const onNextPressed = () => {
         const phoneError = phoneValidator(phoneNumber.value);
      

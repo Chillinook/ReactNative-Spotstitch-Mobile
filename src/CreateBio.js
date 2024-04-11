@@ -5,20 +5,18 @@ import { theme } from './components/theme'
 import { bioValidator } from './helpers/bioValidator'
 import { locationValidator } from './helpers/locationValidator'
 
-import { passwordValidator } from './helpers/passwordValidator'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { Icon} from 'react-native-paper'
-
 export default function CreateBio({navigation,route}) {
   const [bio, setBio] = useState( { value:'' , error:''})
   const [location, setLocation] = useState( { value:'' , error:''})
   const [keyFocus,setkeyFocus] = useState(true)
+
+  // Extracting the email value from the route parameters
   const email = route.params.email
 
     const onNextPressed = () => {
         const bioError = bioValidator(bio.value) ;
         const locationError = locationValidator(location.value) ;
-    
+
         if (locationError || bioError) {
             setBio({ ...bio, error: bioError });           
             setLocation({ ...location, error: locationError });           
@@ -26,7 +24,6 @@ export default function CreateBio({navigation,route}) {
         }
         navigation.navigate('ConnectSocials')          
     };
-
 
   return (
     <View style={styles.container}>       
